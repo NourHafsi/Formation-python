@@ -12,3 +12,5 @@ etu1= user.ajouter_utilisateur("Mouna","amouna@gmail.com","Etudiant")
 #inscription du etudiant:
 insc.inscri_etudiant(python, etu1)
 insc.lister_etudiantinscrits(python)
+print(f"L'étudiant {etu1.nom} est inscrit au cours {python.titre} enseigné par {python.enseignant.nom}.")
+print ("Liste des étudiants inscrits au cours:", insc.lister_etudiantinscrits(python))

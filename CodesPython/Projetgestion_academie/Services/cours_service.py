@@ -5,7 +5,7 @@ class Cours_service:
     def ajouter_cours(self, code_cours, titre, enseignant, capacite_cours):
         cours = Cours(code_cours, titre, enseignant, capacite_cours)
         self.cours.append(cours)
-        return Cours
+        return cours
     def supprimer_Cours(self, code_cours):
         for cours in self.cours:
             if cours.code_cours == code_cours:

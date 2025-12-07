@@ -26,6 +26,10 @@ class UtilisateurSerice:
         else:
             print("Rôle non reconnu.")
             return False
+        self.Utilisateurs.append(user)
+        if role == 'Etudiant':
+            user.cours_inscrits = []
+        return user
     def supprimer_utilisateur(self,ID):
         for user in self.Utilisateurs:
             if user.ID == ID:

@@ -1,5 +1,5 @@
 class Cours:
-    def __init(self, code_cours, titre, enseignant, capacite_cours):
+    def __init__(self, code_cours, titre, enseignant, capacite_cours):
         self.code_cours = code_cours
         self.titre = titre
         self.enseignant = enseignant
