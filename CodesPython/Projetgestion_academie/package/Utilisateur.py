@@ -8,4 +8,12 @@ class Utilisateur:
         return self.role
     def Consulter_infos(self):
         return f"Nom: {self.nom}, Email: {self.email}, Rôle: {self.role}"
+    
+    def to_dict(self):
+        return {
+            "id": self.identifiant,
+            "nom": self.nom,
+            "email": self.email,
+            "role": self.role
+        }
 
