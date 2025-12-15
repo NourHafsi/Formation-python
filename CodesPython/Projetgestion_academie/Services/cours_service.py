@@ -3,7 +3,7 @@ from package.Cours import Cours
 
 
 class Cours_service:
-    def __init__(self, fichier="../Data/cours.json"):
+    def __init__(self, fichier="./Data/cours.json"):
         self.fichier = fichier
 
         # Charger la liste des cours sous forme de dictionnaires
@@ -12,15 +12,21 @@ class Cours_service:
         # Convertir chaque dictionnaire en objet Cours
         self.cours = [Cours.from_dict(d) for d in data]
 
-    def ajouter_cours(self, code_cours, titre, enseignant, capacite_cours):
-        cours = Cours(code_cours, titre, enseignant, capacite_cours)
+    def ajouter_cours(self, code_cours, titre, enseignant, administrateur, capacite_cours):
+        cours = Cours(
+            code_cours,
+            titre,
+            enseignant.identifiant,  # ✅ ID seulement
+            administrateur.identifiant,  # ✅ ID seulement
+            capacite_cours
+            
 
+        )
         # Ajouter l'objet dans la liste
         self.cours.append(cours)
 
         # Sauvegarder la liste mise à jour
         self._sauvegarder()
-
         return cours
 
     def supprimer_cours(self, code_cours):

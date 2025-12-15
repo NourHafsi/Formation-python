@@ -7,7 +7,7 @@ from utils.json_manager import load_json, save_json
 
 
 class UtilisateurService:
-    def __init__(self, fichier="../Data/utilisateurs.json"):
+    def __init__(self, fichier="./Data/utilisateurs.json"):
         self.fichier = fichier
         self.utilisateurs = load_json(self.fichier)   # LISTE DE DICTIONNAIRES
 
@@ -50,11 +50,18 @@ class UtilisateurService:
 
     def supprimer_utilisateur(self, ID):
         for user in self.utilisateurs:
-            if user.ID == ID:
+            #print(user)
+            if user["id"] == ID:
                 self.utilisateurs.remove(user)
                 save_json(self.fichier, self.utilisateurs)
                 return True
         return False
+    
+    def chercher_utilisateur(self, ID):
+        for user in self.utilisateurs:
+            if user["id"] == ID:
+                return user
+        return None
 
     def lister_utilisateurs(self):
         return self.utilisateurs

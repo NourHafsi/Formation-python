@@ -1,0 +1,23 @@
+[
+    {
+        "id": "603d02",
+        "nom": "hela",
+        "email": "hela1@gmail.com",
+        "role": "Etudiant",
+        "cours_inscrits": [
+            "py"
+        ]
+    },
+    {
+        "id": "059c13",
+        "nom": "hamdi",
+        "email": "hamdienseignant@gmail.com",
+        "role": "Enseignant"
+    },
+    {
+        "id": "d7dda5",
+        "nom": "ramzi",
+        "email": "ramziadministrateur@gmail.com",
+        "role": "Administrateur"
+    }
+]

@@ -2,23 +2,30 @@ from utils.json_manager import load_json, save_json
 from package.Cours import Cours
 from package.Etudiant import Etudiant
 
-
 class InscriptionService:
     def __init__(self,
-                 fichier_cours="../Data/cours.json",
-                 fichier_users="../Data/utilisateurs.json"):
-        
+                 fichier_cours="./Data/cours.json",
+                 fichier_users="./Data/utilisateurs.json"):
+
         self.fichier_cours = fichier_cours
         self.fichier_users = fichier_users
 
-        # --- Charger les cours ---
+        self.recharger_cours()        # ✅
+        self.recharger_utilisateurs() # ✅
+
+    # -------------------------------
+    # Recharger les cours depuis JSON
+    # -------------------------------
+    def recharger_cours(self):
         raw_cours = load_json(self.fichier_cours)
         self.cours = [Cours.from_dict(d) for d in raw_cours]
 
-        # --- Charger les utilisateurs ---
-        raw_users = load_json(self.fichier_users)
-        self.utilisateurs = raw_users   # on garde les dict, pas besoin d'objets ici
-
+    # -----------------------------------
+    # Recharger les utilisateurs (dicts)
+    # -----------------------------------
+    def recharger_utilisateurs(self):
+        self.utilisateurs = load_json(self.fichier_users)
+    
     # -----------------------------------------------
     # Helper pour retrouver un cours selon son code
     # -----------------------------------------------
@@ -27,6 +34,7 @@ class InscriptionService:
             if c.code_cours == code_cours:
                 return c
         return None
+   
 
     # -----------------------------------------------
     # Helper pour retrouver un étudiant via son id
@@ -52,9 +60,15 @@ class InscriptionService:
     # Inscrire un étudiant dans un cours
     # -----------------------------------------------
     def inscrire_etudiant(self, code_cours, etu_id):
+
+        # 🔄 Toujours travailler avec des données à jour
+        self.recharger_cours()
+        self.recharger_utilisateurs()
+
         cours = self.get_cours(code_cours)
         etudiant = self.get_etudiant(etu_id)
 
+        # ❌ Vérifications
         if cours is None:
             print("Cours introuvable.")
             return False
@@ -71,16 +85,20 @@ class InscriptionService:
             print("Capacité atteinte.")
             return False
 
-        # --- Inscription ---
+        # ✅ Inscription côté cours
         cours.etudiants_inscrits.append(etu_id)
 
-        # Ajouter ce cours à l'étudiant
+        # ✅ Inscription côté étudiant
         etudiant.setdefault("cours_inscrits", [])
         etudiant["cours_inscrits"].append(code_cours)
 
-        self._sauvegarder()
-        return True
+        cours.capacite_cours-=1   #dimunition de 1 a capacite du cours a chaque inscription 
 
+        # 💾 Sauvegarde finale
+        self._sauvegarder()
+
+        print("✅ Étudiant inscrit avec succès.")
+        return True
     # -----------------------------------------------
     # Désinscription
     # -----------------------------------------------
@@ -112,3 +130,5 @@ class InscriptionService:
         if cours:
             return cours.etudiants_inscrits
         return []
+    
+    

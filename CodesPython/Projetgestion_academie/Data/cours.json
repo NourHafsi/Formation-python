@@ -1,0 +1,18 @@
+[
+    {
+        "code_cours": "java00",
+        "titre": "JAVA",
+        "enseignant_id": "059c13",
+        "administrateur_id": "d7dda5",
+        "capacite_cours": 9,
+        "etudiants_inscrits": []
+    },
+    {
+        "code_cours": "c",
+        "titre": "C",
+        "enseignant_id": "059c13",
+        "administrateur_id": "d7dda5",
+        "capacite_cours": 15,
+        "etudiants_inscrits": []
+    }
+]
