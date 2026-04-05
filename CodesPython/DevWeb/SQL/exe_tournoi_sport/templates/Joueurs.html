@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+    <head>
+    <title>Joueurs</title>
+    </head>
+    <body>
+        <h1>Joueurs</h1>
+        <nav>
+            <a href="/Ajout_Joueur">Ajouter un joueur</a>
+            <a href="/Ajout_Tournoi">Ajouter un tournoi</a>
+            <a href="/Joueurs">Voir les joueurs</a>
+            <a href="/Tournois">Voir les tournois</a>
+        </nav>
+        <table border="1">
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Age</th>
+                <th>Nom_Sport</th>
+            </tr>
+            {% for x in Joueurs %}
+            <tr>
+                <td>{{x[1]}}</td>
+                <td>{{x[2]}}</td>
+                <td>{{x[3]}}</td>
+                <td>{{x[4]}}</td>
+                <td><a href="/Modifier_Joueur/{{x[0]}}">Modifier</a></td>
+                <td><a href="/Supprimer_Joueur/{{x[0]}}">Supprimer</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

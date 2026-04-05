@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <title>Modifier un Tournoi</title>
+</head>
+<body>
+    <h1> Modifier un Tournoi</h1>
+    <nav>
+        <a href="/Ajout_Joueur">Ajouter un joueur</a>
+        <a href="/Ajout_Tournoi">Ajouter un tournoi</a>
+        <a href="/Joueurs">Voir les joueurs</a>
+        <a href="/Tournois">Voir les tournois</a> 
+    </nav>
+    <form method="POST">
+        <label for = "Nom_Tournoi"> Nom du Tournoi:</label>
+        <input type = "text" name= "Nom_Tournoi" value="{{tournoi[1]}}" required><br><br>
+        <label for = "Date_Tournoi"> Date du Tournoi:</label>
+        <input type = "date" name= "Date_Tournoi" value="{{tournoi[2]}}" required><br><br>
+        <label for = "Lieu"> Lieu:</label>
+        <input type = "text" name= "Lieu" value="{{tournoi[3]}}" required><br><br>
+        <label for = "Nombre_Participants"> Nombre de Participants:</label>
+        <input type = "number" name= "Nombre_Participants" value="{{tournoi[4]}}" required><br><br>
+        <input type = "submit" value="Modifier">
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+    <head>
+    <title>Ajout_Joueur</title>
+    </head>
+    <body>
+        <h1>Ajout_Joueur</h1>
+        <nav>
+            <a href="/Ajout_Joueur">Ajouter un joueur</a>
+            <a href="/Ajout_Tournoi">Ajouter un tournoi</a>
+            <a href="/Joueurs">Voir les joueurs</a>
+            <a href="/Tournois">Voir les tournois</a>
+        </nav>
+        <form method="POST">
+            <select name="Tournoi_ID" required>
+                <option value="">Sélectionnez un tournoi</option>
+                {% for tournoi in tournois %}
+                    <option value="{{ tournoi[0] }}">{{ tournoi[1] }}</option>
+                {% endfor %}
+            </select><br><br>
+            <label for="Nom">Nom:</label>
+            <input type="text" name="Nom" required><br><br>
+            <label for="Prenom">Prenom:</label>
+            <input type="text" name="Prenom" required><br><br>
+            <label for="Age">Age:</label>
+            <input type="number" name="Age" required><br><br>
+            <label for="Nom_Sport">Nom du sport:</label>
+            <input type="text" name="Nom_Sport" required><br><br>
+            <input type="submit" value="ajouter">
+        </form>
+</body>
+</html>

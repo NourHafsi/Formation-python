@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <head>
+    <title>Tournois</title>
+    </head>
+    <body>
+        <h1>Tournois</h1>
+        <nav>
+            <a href="/Ajout_Joueur">Ajouter un joueur</a>
+            <a href="/Ajout_Tournoi">Ajouter un tournoi</a>
+            <a href="/Joueurs">Voir les joueurs</a>
+            <a href="/Tournois">Voir les tournois</a>
+        </nav>
+        <table border="1">
+            <tr>
+                <th>Nom_Tournoi</th>
+                <th>Date_Tournoi</th>
+                <th>Lieu</th>
+                <th>Nombre_Participants</th>
+
+            </tr>
+            {% for x in Tournois %}
+            <tr>
+                <td>{{x[1]}}</td>
+                <td>{{x[2]}}</td>
+                <td>{{x[3]}}</td>
+                <td>{{x[4]}}</td>
+                <td><a href="/Modifier_Tournoi/{{x[0]}}">Modifier</a></td>
+                <td><a href="/Supprimer_Tournoi/{{x[0]}}">Supprimer</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+    <head>
+    <title>Ajout_Tournoi</title>
+    </head>
+    <body>
+        <h1>Ajout_Tournoi</h1>
+        <nav>
+            <a href="/Ajout_Joueur">Ajouter un joueur</a>
+            <a href="/Ajout_Tournoi">Ajouter un tournoi</a>
+            <a href="/Joueurs">Voir les joueurs</a>
+            <a href="/Tournois">Voir les tournois</a>
+        </nav>
+        <form method="POST">
+        <label for="Nom_Tournoi">Nom du tournoi:</label>
+        <input type="text" name="Nom_Tournoi" required><br><br>
+        <label for="Date_Tournoi">Date du tournoi:</label>
+        <input type="date" name="Date_Tournoi" required><br><br>
+        <label for="Lieu">Lieu:</label>
+        <input type="text" name="Lieu" required><br><br>
+        <label for="Nombre_Participants">Nombre de participants:</label>
+        <input type="number" name="Nombre_Participants" required><br><br>
+        <input type="submit" value="ajouter">
+    </form>
+</body>
+</html>
