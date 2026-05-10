@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    <title>Modifier un dentiste</title>
+</head>
+<body>
+
+<h1>Modifier un dentiste</h1>
+
+<nav>
+    <a href="/dentists">Voir les dentistes</a>
+</nav>
+
+<form method="POST" action="/edit_dentist/{{ dentist[0] }}">
+    <input type="text" name="nom_user" value="{{ dentist[2] }}">
+    <input type="email" name="email" value="{{ dentist[4] }}">
+    <input type="text" name="specialite" value="{{ dentist[3] }}">
+    <button type="submit">Modifier</button>
+</form>
+
+</body>
+</html>

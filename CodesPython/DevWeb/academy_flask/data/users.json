@@ -1,0 +1,41 @@
+[
+    {
+        "id": "4c8b6e",
+        "nom": "Dima Damak",
+        "email": "dima@exemple.com",
+        "role": "student",
+        "cours_inscrits": [
+            "phy1"
+        ]
+    },
+    {
+        "id": "14708d",
+        "nom": "bilek arafa",
+        "email": "bilek@exemple.com",
+        "role": "teacher"
+    },
+    {
+        "id": "239c0e",
+        "nom": "hajer ahmadi",
+        "email": "hajer@exemple.com",
+        "role": "student",
+        "cours_inscrits": [
+            "Math1"
+        ]
+    },
+    {
+        "id": "3ef5e9",
+        "nom": "mbarek ladhari",
+        "email": "mbarek@exemple.com",
+        "role": "teacher"
+    },
+    {
+        "id": "a5ff34",
+        "nom": "faten Lahmer",
+        "email": "faten@exemple.com",
+        "role": "student",
+        "cours_inscrits": [
+            "Prog1"
+        ]
+    }
+]

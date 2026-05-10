@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ma To-Do List</title>
+</head>
+<body>
+    <h1>Ma To-Do List</h1>
+    <ul>
+        {% for task in TASK %}
+            <li>{{ task }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

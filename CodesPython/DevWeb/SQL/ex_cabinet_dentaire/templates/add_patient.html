@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+    <head>
+    <title>Ajouter un patient</title>
+    </head>
+    <body>
+        <h1>Ajouter un patient</h1>
+        <nav>
+            <a href="/patients">Voir les patients</a><br><br>
+        </nav>
+        <form method="POST">
+             <label for="nom_patient">Nom:</label>
+            <input type="text" name="nom_patient" required><br><br>
+            <label for="date_naissance">Date de naissance:</label>
+            <input type="date" name="date_naissance" required><br><br>
+            <label for="telephone">Téléphone:</label>
+            <input type="tel" name="telephone" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" required><br><br>
+            <input type="submit" value="ajouter">
+        </form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+    <head>
+    <title>Ajouter un dentiste</title>
+    </head>
+    <body>
+        <h1>Ajouter un dentiste</h1>
+        <nav>
+            <a href="/dentists">Voir les dentistes</a><br><br>
+        </nav>
+        <form method="POST">
+            <label>Choisir un dentiste :</label>
+            <select name="utilisateur_id">
+                {% for user in dentists_users %}
+                    <option value="{{ user[0] }}">{{ user[1] }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Spécialité :</label>
+            <input type="text" name="specialite">
+
+            <button type="submit">Ajouter</button>
+</form>
+</body>
+</html>

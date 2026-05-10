@@ -1,0 +1,14 @@
+[
+    {
+        "nom": "tomate",
+        "total": 17.5
+    },
+    {
+        "nom": "pomme",
+        "total": 45.0
+    },
+    {
+        "nom": "pain",
+        "total": 2.0
+    }
+]

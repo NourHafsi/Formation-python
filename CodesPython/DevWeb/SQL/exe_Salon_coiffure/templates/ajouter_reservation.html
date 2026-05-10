@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <title>Reservations</title>
+</head>
+<body>
+    <h1>ajouter_reservation</h1>
+    <nav>
+        <a href ="/">Home</a>
+        <a href ="/ajouter_reservation">Ajouter reservation</a>
+        <a href ="/verification_reservation">Verification reservation</a>
+    </nav>
+    <form method="POST">
+        <label for ="Nom">Nom:</label>
+        <input type ="text" name="Nom" required><br><br>
+        <label for ="Prenom">Prenom:</label>
+        <input type = "text" name="Prenom" required><br><br>
+        <label for ="Numero_telephone">Numero de telephone:</label>
+        <input type ="text" name= "Numero_telephone" required><br><br>
+        <label for ="Creneau">Creneau:</label>
+        <input type = "text" name="Creneau" placeholder="jj/mm/aaaa hh:mm" required><br><br>
+        <label for= "service"> Service:</label>
+        <input type = "text" name="service" required><br><br>
+        <input type ="submit" value="reserver">
+    </form>
+    {% if y %}
+        <p>{{y}}</p>
+    {% endif %}
+    {% if x %}
+        <p>{{x}}</p>
+    {% endif %}
+</body>
+</html>

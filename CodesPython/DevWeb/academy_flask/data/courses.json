@@ -1,0 +1,32 @@
+[
+    {
+        "code_cours": "Math1",
+        "titre": "Mathematiques",
+        "enseignant_id": "Bilek",
+        "administrateur_id": null,
+        "capacite_cours": 23,
+        "etudiants_inscrits": [
+            "239c0e"
+        ]
+    },
+    {
+        "code_cours": "phy1",
+        "titre": "physique",
+        "enseignant_id": "mbarek ladhari\t",
+        "administrateur_id": null,
+        "capacite_cours": 29,
+        "etudiants_inscrits": [
+            "4c8b6e"
+        ]
+    },
+    {
+        "code_cours": "Prog1",
+        "titre": "Python",
+        "enseignant_id": "Bilel",
+        "administrateur_id": null,
+        "capacite_cours": 7,
+        "etudiants_inscrits": [
+            "a5ff34"
+        ]
+    }
+]

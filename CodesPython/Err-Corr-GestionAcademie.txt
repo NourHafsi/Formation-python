@@ -1,0 +1,71 @@
+l'ensemble des erreurs rencontrés et comment ca etait corrigé:
+
+1- dans le code gestionAcademie.py, Instanciation de l'objet "InscriptionService" avant d’avoir créé les cours et utilisateurs(les données), donc, Les méthodes 
+ajouter_utilisateur() et ajouter_cours() cherchaient dans des listes encore vides.
+
+Solution :
+Créer InscriptionService() après avoir créé les cours et utilisateurs.
+
+2- to_dict() essayait d’appeler self.enseignant.to_dict(), mais enseignant était un tuple ou un ID, pas un objet.
+
+Solution :
+- Dans Cours, garder uniquement enseignant_id (et non l’objet Enseignant) :
+
+- to_dict() doit stocker les informations simples et sérialisables pour JSON :
+
+"enseignant_id": self.enseignant_id
+
+
+- Dans InscriptionService, les étudiants sont ajoutés par leur ID :
+
+cours.etudiants_inscrits.append(etu_id)
+
+
+- Correction des appels dans from_dict() pour correspondre à enseignant_id.
+
+3- Erreur AttributeError: 'Cours' object has no attribute 'enseignant'
+
+Symptôme :
+python.enseignant.nom
+
+Cause :
+Après la refactorisation, Cours stocke uniquement enseignant_id.
+Plus d’objet enseignant direct.
+
+Solution :
+Récupérer l’enseignant via le service ou la liste d’utilisateurs :
+enseignant = next(u for u in user.utilisateurs if u["id"] == python.enseignant_id)
+
+Puis afficher le nom :
+enseignant['nom']
+
+4- Confusion sur etu1.ID vs etu1.identifiant
+
+Symptôme :
+insc.inscrire_etudiant(python.code_cours, etu1.ID)
+
+ou
+insc.inscrire_etudiant(python.code_cours, etu1.identifiant)
+
+
+L’un ne fonctionnait pas selon la définition de la classe.
+
+Cause :
+Dans Etudiant.py, l’attribut s’appelle identifiant.
+
+Solution :
+Utiliser : insc.inscrire_etudiant(python.code_cours, etu1.identifiant)
+
+
+resultat de toutes ces corrections : 
+
+Le système fonctionne comme prévu :
+
+Cours sait quels étudiants sont inscrits via leurs IDs
+
+Chaque Etudiant sait à quels cours il est inscrit via les codes des cours
+
+Les relations sont cohérentes et bidirectionnelles :
+
+Cours -> etudiants_inscrits [IDs]
+Etudiant -> cours_inscrits [codes de cours]

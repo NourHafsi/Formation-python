@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestion d'académie</title>
+</head>
+<body>
+    <h1>Gestion d'académie</h1>
+
+    <form method="post" action="/add_user">
+        <input type="text" name="user_name" placeholder="Nom de l'utilisateur" required>
+        <input type="email" name="user_email" placeholder="Email de l'utilisateur" required>
+        <select name="user_role">
+            <option value="Etudiant">Étudiant</option>
+            <option value="Enseignant">Enseignant</option>
+            <option value="Administrateur">Administrateur</option>
+        </select>
+        <button type="submit">Ajouter l'utilisateur</button>
+    </form>
+
+    <h1>Liste des utilisateurs</h1>
+    <table border="1">
+        <tr>
+            <th>Identifiant</th>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Rôle</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.nom }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

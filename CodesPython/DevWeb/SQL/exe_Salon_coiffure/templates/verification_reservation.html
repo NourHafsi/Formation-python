@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <title>Reservations</title>
+</head>
+<body>
+    <h1>verification_reservation</h1>
+    <nav>
+        <a href ="/">Home</a>
+        <a href ="/ajouter_reservation">Ajouter reservation</a>
+        <a href ="/verification_reservation">Verification reservation</a>
+    </nav>
+    <form method = "POST">
+        <label for = "Creneau"> Creneau:</label>
+        <input type = "text" name="Creneau" placeholder="jj/mm/aaaa hh:mm" required><br><br>
+        <input type = "submit" value= "verifier"> 
+    </form>
+    {% if reservations %}
+        <table border="1">
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Numero_telephone</th>
+                <th>creneau</th>
+                <th>service</th>
+            </tr>
+            {% for x in reservations %}
+            <tr>
+                <td>{{x[1]}}</td>
+                <td>{{x[2]}}</td>
+                <td>{{x[3]}}</td>
+                <td>{{x[4]}}</td>
+                <td>{{x[5]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Aucune reservation trouvée pour ce creneau.</p>
+    {% endif %}

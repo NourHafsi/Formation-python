@@ -10,19 +10,26 @@
             <a href="/Joueurs">Voir les joueurs</a>
             <a href="/Tournois">Voir les tournois</a>
         </nav>
+        <form method="POST">
+            <input type="text" placeholder="Rechercher un joueur dans un tournoi" name="search">
+            <button type="submit">Rechercher</button>
+        </form>
         <table border="1">
             <tr>
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Age</th>
                 <th>Nom_Sport</th>
+                <th>Nom_Tournoi</th>
             </tr>
             {% for x in Joueurs %}
             <tr>
-                <td>{{x[1]}}</td>
                 <td>{{x[2]}}</td>
                 <td>{{x[3]}}</td>
                 <td>{{x[4]}}</td>
+                <td>{{x[5]}}</td>
+                <td>{{x[7]}}</td>
+
                 <td><a href="/Modifier_Joueur/{{x[0]}}">Modifier</a></td>
                 <td><a href="/Supprimer_Joueur/{{x[0]}}">Supprimer</a></td>
             </tr>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <title>Recettes</title>
+</head>
+<body>
+    <h1> Recettes </h1>
+    <nav>
+        <a href ="/"> Accueil </a>
+        <a href ="/ajouter_recette"> Ajouter une recette </a>"
+    </nav>
+    {% if recettes %}
+        <table border="1">
+            <tr>
+                <th>Nom</th>
+                <th>Ingredients</th>
+                <th>Preparation</th>
+            </tr>
+            {% for x in recettes %}
+            <tr>
+                <td>{{x[1]}}</td>
+                <td>{{x[2]}}</td>
+                <td>{{x[3]}}</td>
+                <td><a href="/details_recette/{{x[0]}}">Details</a></td>
+                <td><a href="/supprimer_recette/{{x[0]}}">Supprimer</a></td>
+                <td><a href="/modifier_recette/{{x[0]}}">Modifier</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Aucune recette trouvée.</p>
+    {% endif %}
+</body>
+</html>

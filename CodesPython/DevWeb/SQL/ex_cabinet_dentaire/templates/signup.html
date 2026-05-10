@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <title>Signup</title>
+</html>
+<body>
+    <h1>Inscription</h1>
+    <form method="POST">
+        <label for="nom_user">Nom:</label>
+        <input type="text" name="nom_user" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br><br>
+        <label for="password">Mot de passe:</label>
+        <input type="password" name="password" required><br><br>
+        <label for="role">Rôle:</label>
+        <select name="role" required>
+            <option value="secretaire">Secrétaire</option>
+            <option value="dentiste">Dentiste</option>
+            <option value="administrateur">Administrateur</option>
+        </select><br><br>
+        <input type="submit" value="S'inscrire">
+    </form>
+    <a href="/login">Tu as deja un compte? Se connecter</a>
+</body>
+</html>

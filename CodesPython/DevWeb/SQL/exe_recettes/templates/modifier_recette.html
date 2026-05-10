@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    <title>Modifier une Recette</title>
+</head>
+<body>
+    <h1> Modifier une Recette</h1>
+    <nav>
+        <a href ="/"> Accueil </a>
+        <a href ="/ajouter_recette"> Ajouter une recette </a> 
+    </nav>
+    <form method="POST">
+        <label for = "Nom"> Nom:</label>
+        <input type = "text" name= "Nom" value="{{recette[1]}}" required><br><br>
+        <label for = "Ingredients"> Ingredients:</label>
+        <input type = "text" name= "Ingredients" value="{{recette[2]}}" required><br><br>
+        <label for = "Preparation"> Preparation:</label>
+        <input type = "text" name= "Preparation" value="{{recette[3]}}" required><br><br>
+        <input type = "submit" value="Modifier">
+    </form>
+</body>
+</html>

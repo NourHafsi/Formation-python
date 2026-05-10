@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    <title>Details Recette</title>
+</head>
+<body>
+    <h1> Details Recette </h1>
+    <nav>
+        <a href ="/"> Accueil </a>
+        <a href ="/ajouter_recette"> Ajouter une recette </a>  
+    </nav>
+    {% if recette %}
+    <h1>{{recette[1]}}</h1>
+    <p> {{recette[2]}} </p>
+    <p> {{recette[3]}} </p>
+    {% else %}
+        <p>Recette non trouvée.</p>
+    {% endif %}
+</body>
+</html>
+
+    

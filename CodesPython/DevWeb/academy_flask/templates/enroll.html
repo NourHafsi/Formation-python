@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscriptions aux cours</title>
+</head>
+<body>
+    <h1>Inscription d'un étudiant à un cours</h1>
+
+    <form method="post" action="/enrollments">
+        <!-- Select Étudiant -->
+        <label for="user_id">Étudiant :</label>
+        <select name="user_id" id="user_id" required>
+            <option value="">Sélectionner un étudiant</option>
+            {% for user in users %}
+                {% if user["role"].lower() == "student" %}
+                    <option value="{{ user["id"] }}">{{ user["nom"] }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+
+        <!-- Select Cours -->
+        <label for="course_id">Cours :</label>
+        <select name="course_id" id="course_id" required>
+            <option value="">Sélectionner un cours</option>
+            {% for course in courses %}
+                <option value="{{ course.code_cours }}">{{ course.titre }} (Prof: {{ course.enseignant_id }})</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Ajouter l'inscription</button>
+    </form>
+
+    <h2>Liste des inscriptions</h2>
+    <table border="1">
+        <tr>
+            <th>ID Étudiant</th>
+            <th>Nom Étudiant</th>
+            <th>ID Cours</th>
+            <th>Titre Cours</th>
+        </tr>
+        {% for inscrit in inscrits %}
+        <tr>
+            <td>{{ inscrit.user_id }}</td>
+            <td>{{ inscrit.nom }}</td>
+            <td>{{ inscrit.course_id }}</td>
+            <td>{{ inscrit.titre_cours }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

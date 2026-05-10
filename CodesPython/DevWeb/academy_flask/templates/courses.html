@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des cours</title>
+</head>
+<body>
+    <h1>Ajouter un cours</h1>
+    <form method="post" action="/courses">
+        <input type="text" name="course_id" placeholder="Identifiant du cours" required>
+        <input type="text" name="course_name" placeholder="Nom du cours" required>
+        <input type="text" name="enseignant_nom" placeholder="Nom de l'enseignant" required>
+        <input type="number" name="capacite_max" placeholder="Capacité maximale du cours" required>
+        <button type="submit">Ajouter le cours</button>
+    </form>
+
+    <h1>Liste des cours</h1>
+    <table border="1">
+        <tr>
+            <th>Identifiant du cours</th>
+            <th>Nom du cours</th>
+            <th>Nom de l'enseignant</th>
+            <th>Capacité maximale</th>
+        </tr>
+        {% for course in courses %}
+        <tr>
+            <td>{{ course.code_cours }}</td>
+            <td>{{ course.titre }}</td>
+            <td>{{ course.enseignant_id }}</td>
+            <td>{{ course.capacite_cours }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Rechercher les étudiants inscrits à un cours</h1>
+    <form method="post" action="/search_students">
+        <input type="text" name="course_id" placeholder="Identifiant du cours" required>
+        <button type="submit">Rechercher</button>
+    </form>
+
+    {% if students %}
+    <h2>Liste des étudiants pour le cours {{ course_name }}</h2>
+    <table border="1">
+        <tr>
+            <th>Identifiant</th>
+            <th>Nom</th>
+            <th>Email</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.nom }}</td>
+            <td>{{ student.email }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>

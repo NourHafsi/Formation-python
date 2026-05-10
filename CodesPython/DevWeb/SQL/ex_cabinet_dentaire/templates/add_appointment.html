@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+    <head>
+    <title>Ajouter un rendez-vous</title>
+    </head>
+    <body>
+        <h1>Ajouter un rendez-vous</h1>
+        <nav>
+            <a href="/appointments">Voir les rendez-vous</a><br><br>
+        </nav>
+        <form method="POST">
+
+    <label>Patient:</label>
+    <select name="patient_id" required>
+        <option value="">-- Choisir un patient --</option>
+        {% for patient in patients %}
+            <option value="{{ patient[0] }}">{{ patient[1] }}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+
+    <label>Dentiste:</label>
+    <select name="dentiste_id" required>
+        <option value="">-- Choisir un dentiste --</option>
+        {% for dentist in dentistes %}
+            <option value="{{ dentist[0] }}">{{ dentist[1] }}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+
+    <label>Date:</label>
+    <input type="datetime-local" name="date_heure" required>
+    <br><br>
+
+    <label>Statut:</label>
+    <select name="statut" required>
+        <option value="confirmé">Confirmé</option>
+        <option value="annulé">Annulé</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Ajouter</button>
+
+</form>
+</body>
+</html>
